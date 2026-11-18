@@ -1,46 +1,29 @@
-# Task 2 — Customer Segmentation
+# TASK 2: CUSTOMER SEGMENTATION USING K-MEANS CLUSTERING
 
-## Objective
-Group mall customers using annual income and spending score with K-Means clustering.
+## Project Description
 
-## Dataset
-Download the Kaggle **Mall Customer Segmentation Data** CSV and place it in this folder. The script expects:
-- `Annual Income (k$)`
-- `Spending Score (1-100)`
+Customer segmentation is the process of dividing customers into distinct groups based on shared characteristics, behaviours and purchasing patterns.
 
-It can also retain other columns such as `CustomerID`, `Gender`, and `Age` in the output.
+The objective of this project is to apply K-Means clustering to customer data to identify meaningful customer segments based on their annual income and spending scores.
 
-## Run
-```bash
-pip install -r requirements.txt
-python customer_segmentation.py --data Mall_Customers.csv
-```
+By identifying these groups, businesses can better understand customer behaviour, develop targeted marketing strategies, improve customer engagement and make informed business decisions.
 
-## Outputs
-The `outputs/` directory contains:
-- `customer_segments.csv` — customer records with K-Means cluster labels
-- `customer_clusters.png` — 2D cluster visualisation
-- `cluster_selection.png` — elbow and silhouette plots
-- `cluster_profile.csv` — average income and spending score by cluster
-- `customer_segments_with_dbscan.csv` — optional DBSCAN comparison
+## Objectives
 
-## Method
-The two numeric features are standardised before clustering. Candidate values of k are compared using inertia and silhouette score. The script selects the k with the highest silhouette score among the tested values. Review the plots and cluster profiles before interpreting the segments.
+- Explore and understand customer demographic and spending data.
+- Perform data cleaning and preprocessing.
+- Apply feature scaling to prepare the data for clustering.
+- Implement K-Means clustering to group customers.
+- Determine the optimal number of clusters using the Elbow Method and Silhouette Score.
+- Visualise and interpret the resulting customer segments.
+- Explore DBSCAN as an additional clustering technique.
 
-## Important
-Cluster numbers are arbitrary labels, not rankings. Describe each segment using its income and spending profile rather than assuming that Cluster 0 is inherently better than Cluster 1.
+## Techniques and Algorithms
 
-
-## Run the Streamlit web app
-
-From this project folder, create and activate a virtual environment, then run:
-
-```bash
-python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-The app opens in your browser. Upload the dataset CSV through the sidebar/page uploader.
+- Exploratory Data Analysis (EDA)
+- Data preprocessing
+- StandardScaler
+- K-Means Clustering
+- DBSCAN
+- Elbow Method
+- Silhouette Score
