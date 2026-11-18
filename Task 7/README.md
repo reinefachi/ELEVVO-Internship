@@ -1,47 +1,40 @@
-# Task 7 — Walmart Sales Forecasting
+# TASK 7: SALES FORECASTING USING WALMART DATA
 
-## Objective
-Use historical weekly sales to predict sales in a later time period and plot actual versus predicted values.
+## Project Description
 
-## Dataset
-Download the Kaggle Walmart Recruiting — Store Sales Forecasting `train.csv`. Expected columns include:
-- `Date`
-- `Weekly_Sales`
-- `Store` and `Dept` (recommended to retain separate series)
-- `IsHoliday` (optional)
+Sales forecasting involves analysing historical sales records to identify patterns and predict future sales performance.
 
-## Run
-```bash
-pip install -r requirements.txt
-python sales_forecasting.py --data train.csv
-```
-Optional single store/department:
-```bash
-python sales_forecasting.py --data train.csv --store 1 --department 1
-```
+This project uses Walmart historical sales data to develop machine learning models capable of predicting weekly sales.
 
-## Method
-The script creates calendar features and historical lag/rolling-average features. It uses a chronological 80/20 split, rather than randomly shuffling dates, to reduce time leakage. Random Forest and HistGradientBoosting regressors are compared using MAE and RMSE.
+The analysis focuses on understanding sales trends, identifying relevant patterns and evaluating how historical sales information can be used to estimate sales performance over time.
 
-## Outputs
-- `outputs/forecast_model_comparison.csv`
-- `outputs/actual_vs_predicted_sales.png`
-- `outputs/best_sales_model.joblib`
+The project also considers factors such as store, department, date and holiday indicators where available in the dataset.
 
-## Important limitations
-Lag features are built from observed historical sales. The script evaluates a later holdout period; it does not recursively generate future weeks beyond the dataset. For a genuine future forecast, define the forecast horizon and generate future rows using known calendar variables and recursively updated predictions. Avoid using future sales values when creating predictors.
+## Objectives
 
+- Load and explore the Walmart historical sales dataset.
+- Perform data cleaning and preprocessing.
+- Analyse historical sales trends and patterns.
+- Extract relevant date-based features.
+- Engineer lag and rolling-average features.
+- Develop machine learning regression models for sales prediction.
+- Evaluate model performance using appropriate regression metrics.
+- Visualise actual versus predicted sales.
 
-## Run the Streamlit web app
+## Techniques and Algorithms
 
-From this project folder, create and activate a virtual environment, then run:
+- Exploratory Data Analysis (EDA)
+- Time-series data preprocessing
+- Feature Engineering
+- DateTime Feature Extraction
+- Lag Features
+- Rolling Averages
+- Chronological Train-Test Split
+- Random Forest Regressor
+- HistGradientBoosting Regressor
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
 
-```bash
-python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
-```
+**Field:** Machine Learning | Artificial Intelligence | Data Science
 
-The app opens in your browser. Upload the dataset CSV through the sidebar/page uploader.
+**Tools:** Python | Jupyter Notebook | Scikit-learn | Streamlit | GitHub
